@@ -1,12 +1,20 @@
 sudo: false
 language: python
 python:
-- "2.6"
-- "2.7"
-- "3.2"
-- "3.3"
-- "3.4"
-- "3.5"
-- "3.6"
-install: pip install tox-travis
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
+- '3.5'
+- '3.6'
+install: pip install virtualenv==13.1.2 python-coveralls==2.9.1 tox-travis==0.8
 script: tox
+deploy:
+  skip_cleanup: true
+  provider: pypi
+  user: ferhai
+  password:
+    secure: UCQnX4ya20VyTBqLZKBJ9AR827geouSbM1BqpcrnU928nUuyx2ARIgqqaldxjwPvKbGOpMK2LOqp0qLIFGyTV4oZaUMOEHX1HC93huMyu9QBgkZFvgYy82ZYhlgsvmrXGviS3iPx2kBdtclb+bzwS1M5paPi3xR73cvIi+FTzQh35GMyswAXFuizgiH9MJZU+q1vls/G38BVk/jKX7cm0Lito07df92SBONDw3apdvyuVvSHdOPYXss2INZdMcToU6C9jopOp4xU/Nrb+0SXcV0K8keUa48467ZCh1YrGh8vHM2JLxH9jHWsSR0UEHAWwXAkNIlf57YyoCYKPQZev1MxGsxTZ6UyVWyG2zgeyB9UU7pJCj1ZYl7GRUSz9yxdpU/p4TjyCLqyyQjlHO6fnccL0RFk63gAuxOzze0kOFzHJoUBVUs3tR36cAIv3XTpPMm5M5pkCKxv7DW/uAQ9UXDyF+xCClWoilrkDEZ3DBzTIjwKpGyAJVAfYFl8WSrTALQzIXgsvEbO65BJFchgIpPDj7aOUUxk8gB6QPVJ2+yEElFlgKpW1OgJnitNcJ+ckShOoFVgdRayD6gYBITEMwwf2YyTblr1fLFemJCtFvBaIuPqoDfoYxMoDT0KbdMCWuCkZCrhmTH3Xwni4sfEu3tfyjuC3ZNOhTNpek0hmL8=
+after_deploy:
+- coveralls

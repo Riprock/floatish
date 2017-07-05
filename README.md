@@ -106,6 +106,8 @@ requests within 2 weeks of them being submitted. I should ask in the
 pull request discussion to confirm you are OK with including your
 contribution under the current license.
 
+### Running tests
+
 The easiest way to run unit tests and linters is with tox targeting just
 the Python 3.6 environment with the command `tox -e py36`. This assumes
 you are using Python 3.6 and have installed [tox]. Linters are not run
@@ -131,3 +133,30 @@ versions.
 
 [tox]: https://tox.readthedocs.io/en/latest/
 [pyenv]: https://github.com/pyenv/pyenv
+
+### Test coverage
+
+There are no requirements for a specific level of test coverage for
+contributions to be accepted, but integration with coverage tools is
+included to make it easier for authors to write tests for their changes.
+After running tox—and if you have [coverage] installed—you can use
+`coverage report` or `coverage html` to see if there’s anything you
+missed that you think would benefit from test coverage. Coverage for the
+latest version on PyPI/the master branch is on [coveralls].
+
+[coverage]: http://coverage.readthedocs.io/en/latest/
+[coveralls]: https://coveralls.io/github/Riprock/floatish
+
+### Floatish versioning
+
+Floatish uses [semantic versioning]. Any merges to the master branch
+will be deployed to PyPI, assuming the build on Travis CI passes. For
+this reason all pull requests should include updating the version in
+setup.py by at least a patch version. Updates to the version number are
+not made automatically so as to encourage authors to think about the
+type of change they are making. Please update the minor version for any
+improvements and the major version whenever a change is not backwards
+compatible. New major version numbers do not need to be reserved for
+milestone releases.
+
+[semantic versioning]: http://semver.org/
