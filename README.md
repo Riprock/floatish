@@ -22,8 +22,9 @@ Apache-2.0 license.
 Until floatish is released on pypi, you will need to clone the git repo
 then do `pip install .`. Alternatively you can do this all in one step
 with `pip install git+https://github.com/Riprock/floatish.git`. Floatish
-tests run on Python 2.5, 2.6, 2.7, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, and
-3.6.
+tests run on Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, and 3.6. It’s should
+be possible for Floatish to work on other Python versions too but those
+are the ones that Travis CI supports easily.
 
 
 ## Background
