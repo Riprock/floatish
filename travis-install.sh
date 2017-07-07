@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-PYTHON_VERSIONS=3.6.1 3.5.3 3.4.6 3.3.6 3.2.6 3.1.5 3.0.1 2.7.13
+PYTHON_VERSIONS='3.6.1 3.5.3 3.4.6 3.3.6 3.2.6 3.1.5 3.0.1 2.7.13'
 
 install_python_versions=0
 
