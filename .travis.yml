@@ -8,12 +8,23 @@ python:
 - '3.4'
 - '3.5'
 - '3.6'
-install: pip install virtualenv==13.1.2 python-coveralls==2.9.1 tox-travis==0.8
+# Have to pin coverage to the same version used by tox, otherwise the
+# file format changes.
+install: >
+  pip install
+  coverage==3.7.1
+  python-coveralls==2.9.1
+  tox-travis==0.8
+  virtualenv==13.1.2
 script: tox
 deploy:
 - provider: script
   on:
     all_branches: true
+    # Python 2.7 has the most coverage as it does the import fallback
+    # stuff.
+    python:
+    - '2.7'
   skip_cleanup: true
   script: coveralls
 - provider: pypi
