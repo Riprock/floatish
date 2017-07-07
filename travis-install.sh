@@ -7,17 +7,10 @@ installpythonversions=0
 if [ ! -d "$HOME/.pyenv" -o -z "$(ls $HOME/.pyenv)" ]; then
   installpythonversions=1
   git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
-else
-  ls -d "$HOME/.pyenv"
-  ls -l "$HOME/.pyenv"
 fi
 
-ls -l "$HOME/.pyenv"
-ls -l "$HOME/.pyenv/bin"
-
 echo 'export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"' >> "$HOME/.bash_profile"
+eval "$(pyenv init -)"' >> "$HOME/.bash_profile"
 . "$HOME/.bash_profile"
 
 if [ "$installpythonversions" = "1" ]; then
