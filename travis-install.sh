@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 installpythonversions=0
 
-if [ ! -d "$HOME/.pyenv" ]; then
+if [ ! -d "$HOME/.pyenv" -o -z "$(ls $HOME/.pyenv)" ]; then
   installpythonversions=1
   curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 else
