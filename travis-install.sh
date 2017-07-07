@@ -7,6 +7,9 @@ installpythonversions=0
 if [ ! -d "$HOME/.pyenv" ]; then
   installpythonversions=1
   curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+else
+  ls -d "$HOME/.pyenv"
+  ls -l "$HOME/.pyenv"
 fi
 
 echo 'export PATH="$HOME/.pyenv/bin:$PATH"
