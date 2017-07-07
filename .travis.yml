@@ -23,8 +23,7 @@ deploy:
     all_branches: true
     # Python 2.7 has the most coverage as it does the import fallback
     # stuff.
-    python:
-    - '2.7'
+    python: '2.7'
   skip_cleanup: true
   script: coveralls
 - provider: pypi
