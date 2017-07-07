@@ -12,6 +12,9 @@ else
   ls -l "$HOME/.pyenv"
 fi
 
+ls -l "$HOME/.pyenv"
+ls -l "$HOME/.pyenv/bin"
+
 echo 'export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> "$HOME/.bash_profile"
