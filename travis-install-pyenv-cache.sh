@@ -16,4 +16,6 @@ if [ ! -d "$HOME/.pyenv" ]; then
   pyenv install 3.4.6
   pyenv install 3.5.3
   pyenv install 3.6.1
+else
+  ls "$HOME/.pyenv"
 fi
