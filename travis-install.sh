@@ -11,8 +11,8 @@ if [ ! -d "$HOME/.pyenv" ] || [ -z "$(ls $HOME/.pyenv)" ]; then
 fi
 
 echo 'export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"' >> "$HOME/.bash_profile"
-. "$HOME/.bash_profile"
+eval "$(pyenv init -)"' >> "$HOME/.bashrc"
+. "$HOME/.bashrc"
 
 if [ "$install_python_versions" = "1" ]; then
   for version in $PYTHON_VERSIONS; do
