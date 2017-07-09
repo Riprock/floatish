@@ -1,15 +1,12 @@
 sudo: false
 language: python
-# Travis CI matrix makes deploying one thing if all builds are
-# successful hard. Instead lets just install all the Python versions on
-# one container.
 cache:
   pip: true
   directories:
   - $HOME/.pyenv
-install: ./travis-install.sh
-script: tox
-after_success: coverage
+install: pip install python-coveralls==2.9.1
+script: ./travis.sh
+after_success: coveralls
 deploy:
 - provider: pypi
   user: ferhai

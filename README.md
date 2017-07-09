@@ -22,9 +22,8 @@ Apache-2.0 license.
 Until floatish is released on pypi, you will need to clone the git repo
 then do `pip install .`. Alternatively you can do this all in one step
 with `pip install git+https://github.com/Riprock/floatish.git`. Floatish
-tests run on Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, and 3.6. It’s should
-be possible for Floatish to work on other Python versions too but those
-are the ones that Travis CI supports easily.
+tests run on Python 2.5, 2.6, 2.7, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, and
+3.6.
 
 
 ## Background
@@ -37,7 +36,7 @@ One way is to compare your number to the closest possible floating point
 number. e.g.:
 
 ```
-assert 0.1 + 0.1 + 0.1 == 0.30000000000000004
+assert 0.1 + 0.2 == 0.30000000000000004
 ```
 
 That's not great because it makes your test harder to understand. Where
@@ -111,24 +110,13 @@ contribution under the current license.
 The easiest way to run unit tests and linters is with tox targeting just
 the Python 3.6 environment with the command `tox -e py36`. This assumes
 you are using Python 3.6 and have installed [tox]. Linters are not run
-for other environments because it’s hard to install compatible versions
-of the linters and the extra value will be minimal.
+for other environments.
 
 To run tests for other versions of Python you can either wait until you
-make a pull request and see the results in Travis CI, or you run them
-locally with some extra effort. You will need all the tested Python
-versions installed. I like to use [pyenv] to make installing and
-managing Python versions easier. When using pyenv you also need to make
-Python versions active to use them. You can activate multiple versions
-so tox can use them with a command like `pyenv shell 3.6.1 2.7.13 3.0.1
-3-travis.1.5 3.2.6 3.3.6 3.4.6 3.5.3`. Next make sure you are using a version
-of virtualenv less than 14, higher versions are not compatible with
-Python 3.2 and tox uses the virtualenv package version you are currently
-using to create the test environments. You can downgrade the virtualenv
-package with the command `pip install 'virtualenv<14'` but it’s best to
-make sure you do that in a virtual env so you only use an older
-virtualenv package when you have to. Once you have all the dependencies
-you can just run `tox` to run tests for all Python versions.
+make a pull request and see the results in Travis CI, or you can use
+[Docker] to approximate the build on Travis CI. Once you have Docker
+installed you can run `docker-compose up` to intall all the Python
+versions and run the tests in a container.
 
 [tox]: https://tox.readthedocs.io/en/latest/
 [pyenv]: https://github.com/pyenv/pyenv

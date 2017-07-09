@@ -1,0 +1,11 @@
+version: '2'
+services:
+  travis:
+    image: quay.io/travisci/travis-python
+    volumes:
+    - "./travis_cache/pip:/home/travis/.cache/pip"
+    - "./travis_cache/pyenv:/home/travis/.pyenv"
+    - ".:/project"
+    working_dir: /project
+    user: travis
+    command: bash ./travis.sh
