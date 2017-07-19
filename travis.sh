@@ -11,12 +11,14 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
 for version in "${PYTHON_VERSIONS[@]}"; do
-  LC_ALL=C.UTF-8 pyenv install -s "$version"
+  pyenv install -s "$version"
 done
 
 pyenv global "${PYTHON_VERSIONS[@]}"
 # Have to pin coverage to the same version used by tox, otherwise the
 # file format changes.
-pip install coverage==4.4.1 tox==2.7.0 virtualenv==13.1.2
+# have to use older version of virtualenv to make it compatible with
+# older Python versions.
+pip install coverage==4.4.1 tox==2.7.0 virtualenv==1.11.6
 
 tox
